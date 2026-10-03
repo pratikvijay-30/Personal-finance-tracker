@@ -1,3 +1,4 @@
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -218,3 +219,50 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 
+
+# Virtual environment
+backend/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+
+#
+
+backend/finance.db
+*.db
+*.sqlite
+*.sqlite3
+
+
+
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+
+# Vite cache
+frontend/.vite/
+
+
+# =========================
+# macOS
+# =========================
+
+.DS_Store
+
+
+# =========================
+# VS Code
+# =========================
+
+.vscode/
+
