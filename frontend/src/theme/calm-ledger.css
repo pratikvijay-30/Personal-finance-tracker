@@ -1,0 +1,17 @@
+:root[data-theme="calm-ledger"] {
+  color-scheme: light;
+  --bg: #f7f8fa;
+  --surface: #fff;
+  --surface-muted: #f1f3f6;
+  --text: #14213d;
+  --muted: #7b8494;
+  --accent: #14213d;
+  --income: #2a9d8f;
+  --expense: #e76f51;
+  --line: #e9ebef;
+  --soft-accent: #ecf2f1;
+  --shadow: 0 12px 36px rgba(27, 40, 62, .06);
+  --sidebar: #fbfcfd;
+  --font-body: "DM Sans", "Inter", sans-serif;
+  --font-numbers: "Inter", sans-serif;
+}

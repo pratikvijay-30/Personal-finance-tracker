@@ -1,0 +1,17 @@
+:root[data-theme="night-vault"] {
+  color-scheme: dark;
+  --bg: #0f1115;
+  --surface: #181b22;
+  --surface-muted: #20242d;
+  --text: #edf0f7;
+  --muted: #969ead;
+  --accent: #7c6cf2;
+  --income: #3ddc97;
+  --expense: #ff5c7a;
+  --line: #292e38;
+  --soft-accent: #25223e;
+  --shadow: 0 15px 44px rgba(0, 0, 0, .22), 0 0 34px rgba(124, 108, 242, .04);
+  --sidebar: #13161c;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-numbers: "JetBrains Mono", monospace;
+}

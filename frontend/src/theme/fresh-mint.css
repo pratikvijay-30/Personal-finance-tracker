@@ -1,0 +1,18 @@
+:root[data-theme="fresh-mint"] {
+  color-scheme: light;
+  --bg: #f6fbf7;
+  --surface: #fff;
+  --surface-muted: #edf7ef;
+  --text: #173b2b;
+  --muted: #728778;
+  --accent: #40916c;
+  --income: #40916c;
+  --expense: #e76f51;
+  --line: #e2eee5;
+  --soft-accent: #d8f3dc;
+  --shadow: 0 12px 34px rgba(30, 86, 54, .07);
+  --sidebar: #fbfefb;
+  --font-body: "Nunito", "Poppins", sans-serif;
+  --font-numbers: "Nunito", sans-serif;
+  --radius: 22px;
+}
