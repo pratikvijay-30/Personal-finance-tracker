@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/hooks";
-import ThemeSwitch from "../ui/ThemeSwitch";
 import AnimatedBackground from "../ui/AnimatedBackground";
 
 export default function AuthForm({ mode }) {
@@ -43,18 +42,13 @@ export default function AuthForm({ mode }) {
   }
 
   return (
-    <>
+    <div className="public-page auth-page">
       <AnimatedBackground />
-      <div className="auth-page">
-      <header className="auth-header"><Link className="brand" to="/"><span className="brand-mark">p.</span><span>pocketwise</span></Link><div><span className="auth-header-note">A calmer way to money</span><ThemeSwitch /></div></header>
+      <header className="auth-header">
+        <Link className="brand" to="/">Paisa</Link>
+        <Link className="nav-login" to="/">Back to home</Link>
+      </header>
       <main className="auth-main">
-        <div className="auth-visual">
-          <span className="auth-sparkle">✳</span><span className="eyebrow">MAKE ROOM FOR WHAT MATTERS</span>
-          <h2>Good with money<br />looks good on you.</h2>
-          <p>One clear view of your spending, saving, and all the little wins in between.</p>
-          <div className="auth-mini-card"><div><span>Monthly savings</span><strong>₹24,850</strong></div><span className="mini-trend">↗ 18.4%</span><div className="mini-bars">{[34, 51, 42, 70, 58, 78, 96].map((height, i) => <i key={i} style={{ height: `${height}%` }} />)}</div><div className="mini-months"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div></div>
-          <small className="auth-note">Your data stays yours. Always.</small>
-        </div>
         <section className="auth-card">
           <div className="auth-card-top"><span className="eyebrow">{isSignup ? "A FRESH START" : "WELCOME BACK"}</span><span className="auth-step">{isSignup ? "01 / 01" : "✦"}</span></div>
           <h1>{isSignup ? "Create your account" : "Good to see you."}</h1>
@@ -68,14 +62,13 @@ export default function AuthForm({ mode }) {
             {errors.form && <p className="form-error" role="alert">{errors.form}</p>}
             <button className="button button-primary auth-submit" type="submit" disabled={submitting}>{isSignup ? "Create account" : "Log in"} <span aria-hidden="true">↗</span></button>
           </form>
-          {!isSignup && <button className="demo-login" onClick={() => { setValues({ ...values, email: "demo@pocketwise.app", password: "demo1234" }); setErrors({}); }}>Try the demo account <span>· demo@pocketwise.app</span></button>}
-          <p className="auth-switch">{isSignup ? "Already have an account?" : "New to Pocketwise?"} <Link to={isSignup ? "/login" : "/signup"}>{isSignup ? "Log in" : "Create an account"}</Link></p>
+          {!isSignup && <button className="demo-login" onClick={() => { setValues({ ...values, email: "demo@pocketwise.app", password: "demo1234" }); setErrors({}); }}>Try the demo account</button>}
+          <p className="auth-switch">{isSignup ? "Already have an account?" : "New to Paisa?"} <Link to={isSignup ? "/login" : "/signup"}>{isSignup ? "Log in" : "Create an account"}</Link></p>
           {isSignup && <p className="auth-production-note">This demo stores credentials locally for testing only. Production authentication requires a backend, hashed passwords, and secure JWT/session handling.</p>}
         </section>
       </main>
-      <footer className="auth-footer">© 2026 Pocketwise <span>•</span> Made for a little more peace of mind.</footer>
-      </div>
-    </>
+      <footer className="auth-footer">Paisa personal finance tracker.</footer>
+    </div>
   );
 }
 

@@ -2,7 +2,6 @@ import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth, useFinance } from "../../context/hooks";
 import { formatCurrency } from "../../utils/format";
-import ThemeSwitch from "../ui/ThemeSwitch";
 import TransactionForm from "../transactions/TransactionForm";
 import WelcomeAnimation from "../ui/WelcomeAnimation";
 
@@ -27,7 +26,7 @@ export function AppLayout() {
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <NavLink to="/dashboard" className="brand"><span className="brand-mark">p.</span><span>pocketwise</span></NavLink>
+        <NavLink to="/dashboard" className="brand">Paisa</NavLink>
         <span className="nav-caption">YOUR SPACE</span>
         <nav className="side-nav" aria-label="Main navigation">
           {links.map(({ to, label, icon }) => <NavLink key={to} to={to} className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}><span className="nav-icon">{icon}</span>{label}</NavLink>)}
@@ -41,7 +40,6 @@ export function AppLayout() {
           <div className="page-heading"><span className="eyebrow">YOUR MONEY, IN FOCUS</span><h1>{titles[location.pathname]}</h1></div>
           <div className="topbar-actions">
             <label className="search-box"><span aria-hidden="true">⌕</span><input aria-label="Search transactions" placeholder="Search anything..." onChange={(event) => window.dispatchEvent(new CustomEvent("finance-search", { detail: event.target.value }))} /><kbd>⌘ K</kbd></label>
-            <ThemeSwitch />
             <button className="button button-primary top-add" onClick={() => setShowAdd(true)}><span>＋</span> Add</button>
             <div className="user-menu-wrap">
               <button className="user-menu" aria-expanded={menuOpen} aria-label="Open profile menu" onClick={() => setMenuOpen(!menuOpen)}><span className="avatar">{user.name.slice(0, 1).toUpperCase()}</span><span className="user-name">{user.name.split(" ")[0]}</span><span className="chevron">⌄</span></button>
