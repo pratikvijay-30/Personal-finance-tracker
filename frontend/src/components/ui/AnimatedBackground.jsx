@@ -1,20 +1,8 @@
 import { useEffect, useRef } from "react";
 
 const SHAPES = ["rupee", "spending", "income", "savings", "rupee"];
-const PALETTE_TOKENS = ["--p-a", "--p-b", "--p-c", "--p-d"];
-const CAPTIONS = [
-  [],
-  [],
-  [
-    ["Income ₹85,000", 1],
-    ["+12% vs last month", 3],
-  ],
-  [
-    ["Savings goal", 3],
-    ["₹2,40,000 of ₹3,00,000", 1],
-  ],
-  [],
-];
+const PALETTE_TOKENS = ["--p-a", "--p-b", "--p-c", "--p-d", "--p-rupee"];
+const CAPTIONS = [[], [], [], [], []];
 
 function getShapePoints(shape) {
   const surface = document.createElement("canvas");
@@ -29,7 +17,7 @@ function getShapePoints(shape) {
   context.textBaseline = "middle";
 
   if (shape === "rupee") {
-    context.fillStyle = "#ff0000";
+    context.fillStyle = "#808080";
     context.font = "700 210px Sora, sans-serif";
     context.fillText("₹", 100, 108);
   } else if (shape === "spending") {
@@ -77,7 +65,7 @@ function getShapePoints(shape) {
     for (let x = 0; x < surface.width; x += 2) {
       const pixel = (y * surface.width + x) * 4;
       if (data[pixel + 3] < 128) continue;
-      let color = 3;
+      let color = shape === "rupee" ? 4 : 3;
       if (data[pixel] > 200 && data[pixel + 1] < 80 && data[pixel + 2] < 80) color = 0;
       else if (data[pixel + 1] > 200 && data[pixel] < 80) color = 1;
       else if (data[pixel + 2] > 200 && data[pixel] < 80) color = 2;
@@ -104,7 +92,7 @@ export default function AnimatedBackground() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const shapePoints = SHAPES.map((shape) => getShapePoints(shape));
     const warnedTokens = new Set();
-    let colors = ["#000000", "#000000", "#000000", "#000000"];
+    let colors = ["#000000", "#000000", "#000000", "#000000", "#000000"];
     let textColor = "#0B3954";
     let particles = [];
     let width = 0;
